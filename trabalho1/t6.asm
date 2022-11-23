@@ -151,19 +151,18 @@ start:
         ;printf("%d", ecx); tem alguma coisa mexendo em ecx
         ;printf("canal: %d\n", numCanal1)
 
-        xor ecx, ecx
         mov ecx, numCanal1
   
-        mov bl, BYTE PTR [fileBuffer+0]
+        mov bl, BYTE PTR [fileBuffer+ecx]
         add bl, 50
-        mov BYTE PTR [fileBuffer+0], bl
+        mov BYTE PTR [fileBuffer+ecx], bl
         ;printf("%d\n", ecx)
-        cmp BYTE PTR [fileBuffer+0], 50
+        cmp BYTE PTR [fileBuffer+ecx], 50
         jb limiter
         
         jmp escreve
         limiter:
-            mov BYTE PTR [fileBuffer+0], 255
+            mov BYTE PTR [fileBuffer+ecx], 255
             jmp escreve
             
         escreve:
