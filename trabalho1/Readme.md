@@ -1,1 +1,1 @@
-
+*Detalhes de cada versão*
